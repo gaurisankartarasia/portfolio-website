@@ -1,0 +1,48 @@
+<div class="py-5">
+  <div class="w-full text-center">
+    <p class="text-center font-medium">Works</p>
+  </div>
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-5 max-w-7xl mx-auto px-4"
+  >
+    <mat-card
+    appearance="outlined"
+    outlined-container-shape
+      *ngFor="let project of projects"
+      class="flex flex-col justify-between h-full"
+    >
+      <mat-card-header>
+        <mat-card-title>{{ project.title }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ project.description }}</p>
+        <div class="my-4">
+          <mat-chip-listbox>
+            <mat-chip
+              *ngFor="let tech of project.technologies"
+             
+            >
+              {{ tech }}
+            </mat-chip>
+          </mat-chip-listbox>
+        </div>
+      </mat-card-content>
+      <mat-card-actions class="flex justify-between my-3">
+        <button
+          matButton="text"
+          [disabled]="!project.liveUrl"
+          (click)="openLink(project.liveUrl)"
+        >
+          Live Demo
+        </button>
+        <button
+          matButton="text"
+          [disabled]="!project.viewProjectLink"
+          (click)="openLink(project.viewProjectLink)"
+        >
+          View Project
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

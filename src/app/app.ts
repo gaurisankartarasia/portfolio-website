@@ -1,12 +1,17 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {MatButtonModule} from '@angular/material/button';
+
+import { HeroComponent } from './hero/hero';
+import { Knowledge } from './knowledge/knowledge';
+
+import { Projects } from './projects/projects';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [ MatButtonModule,   HeroComponent, Knowledge, Projects],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  protected title = 'my-pf';
+  protected title = 'Gaurisankar Tarasia';
 }

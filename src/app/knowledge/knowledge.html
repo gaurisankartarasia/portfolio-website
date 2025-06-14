@@ -1,0 +1,17 @@
+<div class="skills-card">
+  <div class="my-5">
+    <p class="text-center font-medium">Technical knowledge includes</p>
+  </div>
+  <div>
+    <div class="skills-grid">
+      <div class="skill-item" *ngFor="let skill of skills">
+        <img
+          [src]="skill.icon"
+          [alt]="skill.name + ' icon'"
+          class="skill-icon"
+        />
+        <span>{{ skill.name }}</span>
+      </div>
+    </div>
+  </div>
+</div>

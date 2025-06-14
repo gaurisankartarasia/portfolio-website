@@ -1,0 +1,61 @@
+<section class="text-gray-600 body-font">
+  <div
+    class="container mx-auto flex md:px-24 md:py-10 md:flex-row flex-col items-center"
+  >
+    <div
+      class="lg:flex-grow mt-5 md:mt-0 md:w-1.5/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center"
+    >
+      <h1
+        class="text-xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-normal"
+      >
+        Gaurisankar Tarasia
+      </h1>
+      <p class="mb-8 md:pl-0 pl-2 pr-2 leading-relaxed dark:text-gray-300">
+        A web developer
+      </p>
+      <div class="flex flex-wrap gap-2 justify-center ">
+        <a
+          mat-flat-button
+          href="mailto:gaurisankartarasia"
+          class="inline-flex py-2 px-6"
+          >Conteact Mail
+        </a>
+        <button
+          matButton="tonal"
+          [matMenuTriggerFor]="menu"
+          href="#"
+          class="inline-flex py-2 px-6"
+        >
+          View CV
+        </button>
+        <mat-menu #menu="matMenu">
+          <a href="https://www.canva.com/design/DAGhhbzugGA/8XIdx8tWkO4MEyiDVJIC-A/view?utm_content=DAGhhbzugGA&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h55fa4fb22f" mat-menu-item>View Live</a>
+          <a href="https://raw.githubusercontent.com/gaurisankartarasia/4565dnfi4/main/Gaurisankar%20Tarasia20250313.pdf" mat-menu-item>Download</a>
+        </mat-menu>
+        <a
+          matIconButton
+            matTooltip="Go to LinkedIn profile"
+          href="www.linkedin.com/in/gaurisankar-tarasia-0a32a8235"
+          class="inline-flex py-2 px-6"
+        >
+          <img src="/assets/linkedin.svg" alt="" class="w-64" />
+        </a>
+        <a
+          matIconButton
+          matTooltip="Go to GitHub repositories"
+          href="https://github.com/gaurisankartarasia?tab=repositories"
+          class="inline-flex py-2 px-6"
+        >
+          <img src="/assets/github.svg" alt="" />
+        </a>
+      </div>
+    </div>
+    <div class="lg:max-w-lg lg:w-full mb-5 md:mb-0 md:w-1/2 w-3/6">
+      <img
+        class="object-cover object-center rounded"
+        alt="hero"
+        src="/assets/hero.png"
+      />
+    </div>
+  </div>
+</section>
