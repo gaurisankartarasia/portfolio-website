@@ -1,3 +1,4 @@
+
 <div class="py-5">
   <div class="w-full text-center">
     <p class="text-center font-medium">Works</p>
@@ -6,43 +7,51 @@
     class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-5 max-w-7xl mx-auto px-4"
   >
     <mat-card
-    appearance="outlined"
-    outlined-container-shape
+      appearance="filled"
+      outlined-container-shape
       *ngFor="let project of projects"
-      class="flex flex-col justify-between h-full"
+      class="flex flex-col justify-between h-full relative"
     >
-      <mat-card-header>
+      <mat-card-header class="relative">
         <mat-card-title>{{ project.title }}</mat-card-title>
+
+        <div class="absolute top-0 right-0 flex gap-2 p-2">
+          <a
+            matIconButton
+            matTooltip="View source"
+            [href]="project.viewProjectLink"
+            target="_blank"
+            *ngIf="project.viewProjectLink; else privateSource"
+          >
+            <span class="material-symbols-outlined"> code </span>
+          </a>
+
+          <ng-template #privateSource>
+            <span
+              class="text-xs text-gray-500 self-center pr-1"
+              title="Source is private"
+            >
+              Source private
+            </span>
+          </ng-template>
+          <a matIconButton  matTooltip="View live" [href]="project.liveUrl" target="_blank" *ngIf="project.liveUrl">
+            <span class="material-symbols-outlined"> arrow_forward </span>
+          </a>
+        </div>
       </mat-card-header>
+
       <mat-card-content>
+      
+
         <p>{{ project.description }}</p>
         <div class="my-4">
           <mat-chip-listbox>
-            <mat-chip
-              *ngFor="let tech of project.technologies"
-             
-            >
+            <mat-chip *ngFor="let tech of project.technologies">
               {{ tech }}
             </mat-chip>
           </mat-chip-listbox>
         </div>
       </mat-card-content>
-      <mat-card-actions class="flex justify-between my-3">
-        <button
-          matButton="text"
-          [disabled]="!project.liveUrl"
-          (click)="openLink(project.liveUrl)"
-        >
-          Live Demo
-        </button>
-        <button
-          matButton="text"
-          [disabled]="!project.viewProjectLink"
-          (click)="openLink(project.viewProjectLink)"
-        >
-          View Project
-        </button>
-      </mat-card-actions>
     </mat-card>
   </div>
 </div>
