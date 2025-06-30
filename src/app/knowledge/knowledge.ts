@@ -15,6 +15,7 @@ export class Knowledge {
     { name: 'JavaScript', icon: 'assets/javascript.svg' }, 
     { name: 'React', icon: 'assets/react.svg' }, 
     { name: 'Next JS', icon: 'assets/nextjs.svg' }, 
+     { name: 'Express JS', icon: 'assets/expressjs.svg' }, 
     { name: 'MUI', icon: 'assets/mui.svg' }, 
     { name: 'Shadcn/ui', icon: 'assets/shadcn.png' },
     { name: 'Firebase', icon: 'assets/firebase.svg' },
