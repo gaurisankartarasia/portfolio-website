@@ -1,57 +1,42 @@
-
-<div class="py-5">
-  <div class="w-full text-center">
-    <p class="text-center font-medium">Works</p>
-  </div>
-  <div
-    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-5 max-w-7xl mx-auto px-4"
-  >
-    <mat-card
-      appearance="filled"
-      outlined-container-shape
-      *ngFor="let project of projects"
-      class="flex flex-col justify-between h-full relative"
-    >
-      <mat-card-header class="relative">
-        <mat-card-title>{{ project.title }}</mat-card-title>
-
-        <div class="absolute top-0 right-0 flex gap-2 p-2">
-          <a
-            matIconButton
-            matTooltip="View source"
-            [href]="project.viewProjectLink"
-            target="_blank"
-            *ngIf="project.viewProjectLink; else privateSource"
-          >
-            <span class="material-symbols-outlined"> code </span>
-          </a>
-
-          <ng-template #privateSource>
-            <span
-              class="text-xs text-gray-500 self-center pr-1"
-              title="Source is private"
-            >
-              Source private
-            </span>
-          </ng-template>
-          <a matIconButton  matTooltip="View live" [href]="project.liveUrl" target="_blank" *ngIf="project.liveUrl">
-            <span class="material-symbols-outlined"> arrow_forward </span>
-          </a>
+<div id="projects" class="bg-white py-18">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="mx-auto max-w-2xl lg:text-center">
+            <h2 class="text-base font-semibold leading-7 text-indigo-600">My Work</h2>
+            <p class="text-2xl font-bold tracking-tight text-gray-900 ">Recent Projects</p>
+            <p class=" text-lg leading-8 text-gray-600">
+                Here are a few projects I've worked on recently.
+            </p>
         </div>
-      </mat-card-header>
+        <div class="mx-auto mt-4 grid container grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
 
-      <mat-card-content>
-      
+            <article *ngFor="let project of projects" class="flex flex-col items-start justify-between ">
+                <div class="relative w-full">
+                   <div class="aspect-[16/9] w-full flex items-center justify-center bg-gray-100" >
+                        <img [src]="project.imageUrl" loading="lazy" [alt]="'Screenshot of ' + project.title"
+                        class=" w-14 object-contain"
+                        onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/ffffff?text=Image+Not+Found';">
+                    <div class="absolute inset-0 ring-z ring-inset ring-gray-900/10"></div>
+                   </div>
+                </div>
+                <div class="max-w-xl">
+                    <div class="mt-8 flex items-center gap-x-4 text-xs">
+                       
+                        <p
+                            class="relative z-10 bg-gray-50 font-medium text-gray-600">{{
+                            project.tag }}</p>
+                    </div>
+                    <div class="group relative">
+                        <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+                            <a [href]="project.link" target="_blank"  class="hover:underline underline-offset-4" >
+                                <span class="absolute inset-0"></span>
+                                {{ project.title }}
+                            </a>
+                        </h3>
+                        <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">{{ project.description }}</p>
+                    </div>
+                </div>
+            </article>
 
-        <p>{{ project.description }}</p>
-        <div class="my-4">
-          <mat-chip-listbox>
-            <mat-chip *ngFor="let tech of project.technologies">
-              {{ tech }}
-            </mat-chip>
-          </mat-chip-listbox>
         </div>
-      </mat-card-content>
-    </mat-card>
-  </div>
+    </div>
 </div>

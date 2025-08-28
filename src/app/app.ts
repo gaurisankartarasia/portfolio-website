@@ -1,14 +1,11 @@
 import { Component } from '@angular/core';
-import {MatButtonModule} from '@angular/material/button';
+import { RouterOutlet } from '@angular/router';
+import { Nav } from './nav/nav';
 
-import { HeroComponent } from './hero/hero';
-import { Knowledge } from './knowledge/knowledge';
-
-import { Projects } from './projects/projects';
 
 @Component({
   selector: 'app-root',
-  imports: [ MatButtonModule,   HeroComponent, Knowledge, Projects],
+  imports: [  RouterOutlet, Nav],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
