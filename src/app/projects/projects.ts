@@ -6,7 +6,7 @@ interface Project {
   description: string;
   imageUrl: string;
   tag: string;
-  link: string;
+  link?: string;
 }
 
 @Component({
@@ -19,58 +19,29 @@ interface Project {
   templateUrl: './projects.html',
 })
 export class Projects {
-projects: Project[] = [
-   {
-    title: "HRMS",
-    description: "Employee management.",
-    imageUrl: "/assets/github-outline.svg",
-    tag: "React, Express.js, Javascript, MySQL",
-    link: "https://github.com/gaurisankartarasia/emp-mng-react"
-  },
-  {
-    title: "Synapse",
-    description: "A platform that connects people together.",
- imageUrl: "/assets/github-outline.svg",  
-    tag: "React, Next.js, TypeScript, Firebase",
-    link: "https://github.com/gaurisankartarasia/synapse"
-  },
-  
-  {
-    title: "Portfolio site",
-    description: "A personal portfolio website & and for sharing custom built rom details.",
- imageUrl: "/assets/github-outline.svg",    
-    tag: "React, Vite, Javascript, Tailwind CSS",
-    link: "https://github.com/gaurisankartarasia/hackneyed"
-  },
-  {
-    title: "Portfolio site",
-    description: "A personal portfolio website.",
- imageUrl: "/assets/github-outline.svg",   
-    tag: "React, Vite, Javascript, Tailwind CSS",
-    link: "https://github.com/gaurisankartarasia/Ansh"
-  },
-  {
-    title: "Badamba",
-    description: "My village site.",
- imageUrl: "/assets/github-outline.svg",  
-    tag: "HTML5, CSS3, JavaScript, Bootstrap",
-    link: "https://github.com/gaurisankartarasia/Badamba"
-  },
-  {
-    title: "Stellar Wings",
-    description: "An educational institution site.",
- imageUrl: "/assets/github-outline.svg",   
-    tag: "HTML5, CSS3, JavaScript, Bootstrap",
-    link: "https://github.com/gaurisankartarasia/StellarWings"
-  },
-  {
-    title: "Convoya",
-    description: "A small landing page for a platform.",
- imageUrl: "/assets/github-outline.svg",    
-    tag: "HTML5, CSS3, JavaScript, Tailwind CSS",
-    link: "https://github.com/gaurisankartarasia/Convoya"
-  }
-];
+  projects: Project[] = [
+     {
+      title: "E-INDENT",
+      description: "Supply Management System (Govt. Press of Odisha)",
+      imageUrl: "/assets/github-outline.svg",
+      tag: "React, Laravel, Javascript, MySQL",
+      link: "#"
+    },
+    {
+      title: "ERP",
+      description: "Enterprise Resource Planning",
+      imageUrl: "/assets/github-outline.svg",
+      tag: "React, Express.js, Javascript, MySQL",
+      link: "#"
+    },
+    {
+      title: "Synapse",
+      description: "A platform that connects people together.",
+      imageUrl: "/assets/github-outline.svg",  
+      tag: "React, Next.js, TypeScript, Firebase",
+      link: "https://github.com/gaurisankartarasia/synapse"
+    },
+  ];
 
 
 

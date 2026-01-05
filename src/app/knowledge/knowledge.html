@@ -4,31 +4,25 @@
       <h1 class="mt-2 text-2xl font-bold tracking-tight text-gray-900">
         Technologies I Work With
       </h1>
-      <p class="mt-6 text-lg leading-8 text-gray-600">
-        I have experience with a wide range of web technologies, from front-end design to back-end development
-        and deployment.
-      </p>
+     
     </div>
 
     <div class="mx-auto text-center mt-16 sm:mt-20 lg:mt-24 container">
-      <dl class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-x-8 gap-y-12">
-      <div *ngFor="let skill of skills">
-  <a 
-    target="_blank" 
-    rel="noopener noreferrer"
-    [attr.href]="skill.link" 
-    class="flex flex-col items-center text-center"
-  >
-    <img 
-      [src]="skill.icon" 
-      [alt]="skill.name + ' icon'" 
-      class="h-10 w-10 mb-4" 
-    />
-    <dt class="text-base font-semibold leading-7 text-gray-900">
-      {{ skill.name }}
-    </dt>
-  </a>
-</div>
+      <dl class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-y-8">
+        
+        @for (skill of skills; track skill.name) {
+          <div class="hover:bg-gray-200 py-6" >
+            <a target="_blank" rel="noopener noreferrer" [attr.href]="skill.link"
+              class="flex flex-col items-center text-center">
+              <img [src]="skill.icon" [alt]="skill.name + ' icon'" class="h-10 w-10 mb-4" />
+              <dt class="text-base font-semibold leading-7 text-gray-900">
+                {{ skill.name }}
+              </dt>
+            </a>
+          </div>
+        } @empty {
+          <p class="text-gray-500">No skills to display.</p>
+        }
 
       </dl>
     </div>

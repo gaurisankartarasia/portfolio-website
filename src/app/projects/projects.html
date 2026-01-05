@@ -1,42 +1,50 @@
 <div id="projects" class="bg-white py-18">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
-        <div class="mx-auto max-w-2xl lg:text-center">
-            <h2 class="text-base font-semibold leading-7 text-indigo-600">My Work</h2>
-            <p class="text-2xl font-bold tracking-tight text-gray-900 ">Recent Projects</p>
-            <p class=" text-lg leading-8 text-gray-600">
-                Here are a few projects I've worked on recently.
-            </p>
-        </div>
-        <div class="mx-auto mt-4 grid container grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-
-            <article *ngFor="let project of projects" class="flex flex-col items-start justify-between ">
-                <div class="relative w-full">
-                   <div class="aspect-[16/9] w-full flex items-center justify-center bg-gray-100" >
-                        <img [src]="project.imageUrl" loading="lazy" [alt]="'Screenshot of ' + project.title"
-                        class=" w-14 object-contain"
-                        onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/ffffff?text=Image+Not+Found';">
-                    <div class="absolute inset-0 ring-z ring-inset ring-gray-900/10"></div>
-                   </div>
-                </div>
-                <div class="max-w-xl">
-                    <div class="mt-8 flex items-center gap-x-4 text-xs">
-                       
-                        <p
-                            class="relative z-10 bg-gray-50 font-medium text-gray-600">{{
-                            project.tag }}</p>
-                    </div>
-                    <div class="group relative">
-                        <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-                            <a [href]="project.link" target="_blank"  class="hover:underline underline-offset-4" >
-                                <span class="absolute inset-0"></span>
-                                {{ project.title }}
-                            </a>
-                        </h3>
-                        <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">{{ project.description }}</p>
-                    </div>
-                </div>
-            </article>
-
-        </div>
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl lg:text-center">
+      <p class="text-2xl font-bold tracking-tight text-gray-900 ">Recent Projects</p>
+     
     </div>
+
+    <div class="mx-auto mt-4 grid container grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+      
+      @defer (on viewport) {
+        @for (project of projects; track project.title) {
+          <a [href]="project.link" target="_blank" class="flex flex-col items-start justify-between p-3 hover:bg-gray-100 hover:shadow-lg">
+            <div class="relative w-full">
+              <div class="aspect-[16/9] w-full flex items-center justify-center bg-blue-50">
+                <img [src]="project.imageUrl" loading="lazy" [alt]="'Screenshot of ' + project.title"
+                  class=" w-14 object-contain"
+                  onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/ffffff?text=Image+Not+Found';">
+                <div class="absolute inset-0 "></div>
+              </div>
+            </div>
+            <div class="max-w-xl">
+              <div class="mt-8 flex items-center gap-x-4 text-md">
+                <p class="relative z-10 font-medium text-gray-600">{{ project.tag }}</p>
+              </div>
+              <div class="group relative">
+                <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+                  <p>
+                    <span class="absolute inset-0"></span>
+                    {{ project.title }}
+                  </p>
+                </h3>
+                <p class="mt-2 line-clamp-3 text-sm leading-6 text-gray-600">{{ project.description }}</p>
+              </div>
+            </div>
+          </a>
+        } @empty {
+          <div class="col-span-full py-20 text-center">
+            <p class="text-gray-500 italic">No projects to show at the moment.</p>
+          </div>
+        }
+      } @placeholder {
+        <div class="col-span-full py-20 flex flex-col items-center justify-center">
+          <div class="h-8 w-8 animate-spin rounded-full border-4 border-solid border-indigo-600 border-r-transparent"></div>
+          <p class="mt-4 text-gray-600 font-medium">Loading projects...</p>
+        </div>
+      }
+
+    </div>
+  </div>
 </div>
